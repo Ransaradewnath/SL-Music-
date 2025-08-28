@@ -15,7 +15,7 @@ async function loadSongs() {
 // Convert item.txt content into song objects
 function parseSongs(text) {
   const blocks = text.trim().split('\n\n');
-  return blocks.map(block => {
+  return blocks.map((block, index) => {
     const lines = block.split('\n');
     const song = {};
     lines.forEach(line => {
@@ -39,11 +39,20 @@ function showSearchResults(songs) {
     li.onclick = () => showSongDetails(song);
     list.appendChild(li);
 });
+
+  // Show or hide "No results found"
+  const noResults = document.getElementById('noResults');
+  if (noResults) {
+    noResults.style.display = songs.length === 0? 'block': 'none';
+}
 }
 
-// Show full song card
+// Show full song card and hide other content
 function showSongDetails(song) {
   const container = document.getElementById('songDetails');
+  const mainContent = document.getElementById('mainContent');
+  if (mainContent) mainContent.style.display = 'none';
+
   container.innerHTML = `
     <div class="song-card">
       <img src="${song['Cover']}" class="cover" alt="${song['Song Name']} Cover" />
@@ -53,7 +62,18 @@ function showSongDetails(song) {
       <a href="${song['Audio']}" download class="download-btn">Download</a>
     </div>
   `;
+
   showRecommendations(song);
+
+  // Add back button
+  const backBtn = document.createElement('button');
+  backBtn.textContent = '🔙 Back to Home';
+  backBtn.className = 'download-btn';
+  backBtn.onclick = () => {
+    container.innerHTML = '';
+    if (mainContent) mainContent.style.display = 'block';
+};
+  container.appendChild(backBtn);
 }
 
 // Smart recommendations based on artist
@@ -94,7 +114,7 @@ function showTrendingSongs() {
     `;
     card.onclick = () => showSongDetails(song);
     trendingList.appendChild(card);
-});
+    });
 }
 
 // Search input listener
@@ -105,6 +125,15 @@ document.getElementById('searchInput')?.addEventListener('input', e => {
     song['Artist'].toLowerCase().includes(query)
 );
   showSearchResults(matches);
+
+  // Update result count
+  const countText = document.getElementById('resultCount');
+  if (countText) {
+    countText.textContent = `🔍 ${matches.length} result${matches.length!== 1? 's': ''} found`;
+    countText.style.animation = 'none';
+    void countText.offsetWidth;
+    countText.style.animation = 'fadeIn 1s ease-in-out';
+}
 });
 
 // Initialize

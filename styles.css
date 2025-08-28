@@ -7,32 +7,36 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
-  color: white;
-  min-height: 100vh;
+  background: #fdfdfd;
+  color: #2c2c2c;
   padding: 20px;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
 main {
   flex: 1;
+  padding-bottom: 100px; /* Prevent footer overlap */
 }
 
 /* Header */
 header {
   text-align: center;
   margin-bottom: 30px;
+  background: linear-gradient(to right, #e0f7fa, #ffffff);
+  padding-bottom: 20px;
+  border-radius: 0 0 20px 20px;
 }
 
 header h1 {
   font-size: 2.5rem;
   font-weight: 600;
-  color: #fff;
+  color: #1a1a1a;
 }
 
 header span {
-  color: #0ff;
+  color: #3498db;
 }
 
 /* Navigation */
@@ -42,7 +46,7 @@ nav {
 
 nav a {
   margin: 0 10px;
-  color: #0ff;
+  color: #3498db;
   text-decoration: none;
   font-weight: bold;
 }
@@ -57,32 +61,40 @@ nav a:hover {
   padding: 10px 20px;
   width: 80%;
   max-width: 500px;
-  border: none;
+  border: 1px solid #ccc;
   border-radius: 25px;
   font-size: 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  color: white;
-  backdrop-filter: blur(5px);
-  box-shadow: 0 0 10px #00f;
-  animation: pulse 2s infinite;
+  background: #fff;
+  color: #333;
 }
 
 #searchInput::placeholder {
-  color: #0ff;
+  color: #888;
   font-style: italic;
-  animation: fadeIn 3s ease-in-out infinite;
 }
 
-@keyframes pulse {
-  0% { box-shadow: 0 0 10px #00f;}
-  50% { box-shadow: 0 0 20px #0ff;}
-  100% { box-shadow: 0 0 10px #00f;}
+/* Result Count */
+.result-count {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #555;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* No Results Message */
+.no-results {
+  margin-top: 15px;
+  font-size: 1.1rem;
+  color: #d33;
+  text-align: center;
+  animation: fadeIn 0.8s ease-in-out;
 }
 
 @keyframes fadeIn {
-  0% { opacity: 0.3;}
-  50% { opacity: 1;}
-  100% { opacity: 0.3;}
+  0% { opacity: 0; transform: scale(0.95);}
+  50% { opacity: 1; transform: scale(1.02);}
+  100% { opacity: 1; transform: scale(1);}
 }
 
 /* Search Results */
@@ -98,14 +110,15 @@ nav a:hover {
   margin: 5px auto;
   width: 80%;
   max-width: 500px;
-  background: rgba(255, 255, 255, 0.05);
+  background: #fff;
+  border: 1px solid #ddd;
   border-radius: 10px;
   cursor: pointer;
   transition: background 0.3s;
 }
 
 .search-item:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: #f0f0f0;
 }
 
 /* Song Details */
@@ -115,13 +128,17 @@ nav a:hover {
 }
 
 .song-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
   padding: 20px;
-  box-shadow: 0 0 20px #00f;
   max-width: 500px;
-  margin: 0 auto;
+  margin: 0 auto 30px;
+  transition: transform 0.3s ease;
+}
+
+.song-card:hover {
+  transform: translateY(-4px);
 }
 
 .song-card img.cover {
@@ -138,7 +155,7 @@ nav a:hover {
 .song-card p {
   font-size: 1rem;
   margin-bottom: 15px;
-  color: #ccc;
+  color: #666;
 }
 
 .song-card audio {
@@ -148,18 +165,20 @@ nav a:hover {
 
 .download-btn {
   display: inline-block;
-  background: #00f;
+  background: #3498db;
   color: white;
-  padding: 10px 20px;
-  border-radius: 10px;
+  padding: 12px 24px;
+  border-radius: 8px;
   text-decoration: none;
-  box-shadow: 0 0 10px #00f;
-  transition: background 0.3s, box-shadow 0.3s;
+  border: none;
+  font-size: 1rem;
+  margin: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
 .download-btn:hover {
-  background: #0ff;
-  box-shadow: 0 0 20px #0ff;
+  background: #2980b9;
 }
 
 /* Trending Songs */
@@ -171,7 +190,7 @@ nav a:hover {
 #trending h2 {
   font-size: 1.8rem;
   margin-bottom: 20px;
-  color: #0ff;
+  color: #3498db;
 }
 
 .trending-list {
@@ -182,20 +201,19 @@ nav a:hover {
 }
 
 .trending-card {
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
   padding: 15px;
   width: 220px;
-  box-shadow: 0 0 10px #00f;
   text-align: center;
   transition: transform 0.3s;
   cursor: pointer;
 }
 
 .trending-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px #0ff;
+  transform: translateY(-4px);
+  background: #f0f0f0;
 }
 
 .trending-card img {
@@ -211,28 +229,32 @@ nav a:hover {
 
 .trending-card p {
   font-size: 0.9rem;
-  color: #ccc;
+  color: #666;
 }
 
-/* About Section */
-#about {
-  margin-top: 60px;
-  text-align: center;
-  padding: 20px;
-  background: rgba(255,255,255,0.05);
-  border-radius: 15px;
-  backdrop-filter: blur(5px);
+/* Recommendations */
+.recommendations {
+  margin-top: 20px;
+  text-align: left;
 }
 
-#about h2 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-}
-
-#about p {
-  font-size: 1rem;
+.recommendations h4 {
+color: #3498db;
   margin-bottom: 10px;
-  color: #ccc;
+}
+
+.rec-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.rec-card:hover {
+  background: #f0f0f0;
 }
 
 /* Contact Form */
@@ -242,7 +264,7 @@ nav a:hover {
 }
 
 #contact form {
-display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   gap: 15px;
@@ -255,24 +277,22 @@ display: flex;
   width: 100%;
   padding: 10px;
   border-radius: 10px;
-  border: none;
-  background: rgba(255,255,255,0.1);
-  color: white;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #333;
 }
 
 #contact button {
   padding: 10px 20px;
-  background: #00f;
+  background: #3498db;
   color: white;
   border-radius: 10px;
   border: none;
-  box-shadow: 0 0 10px #00f;
   cursor: pointer;
 }
 
 #contact button:hover {
-  background: #0ff;
-  box-shadow: 0 0 20px #0ff;
+  background: #2980b9;
 }
 
 /* Upcoming Releases */
@@ -284,64 +304,11 @@ display: flex;
 #upcoming ul {
   list-style: none;
   padding: 0;
-  color: #ccc;
+  color: #555;
 }
 
 #upcoming li {
   margin-bottom: 10px;
-}
-
-/* Recommendations */
-.recommendations {
-  margin-top: 20px;
-  text-align: left;
-}
-
-.recommendations h4 {
-  color: #0ff;
-  margin-bottom: 10px;
-}
-
-.rec-card {
-  background: rgba(255,255,255,0.05);
-  padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.rec-card:hover {
-  background: rgba(255,255,255,0.15);
-}
-
-/* Floating Emoji Footer */
-.floating-footer {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 999;
-}
-
-.floating-footer a {
-  font-size: 1.8rem;
-  text-decoration: none;
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(5px);
-  padding: 10px;
-  border-radius: 50%;
-  box-shadow: 0 0 10px #00f;
-  transition: transform 0.3s, box-shadow 0.3s;
-  color: white;
-  text-align: center;
-}
-
-.floating-footer a:hover {
-  transform: scale(1.2);
-  box-shadow: 0 0 20px #0ff;
 }
 
 /* Footer */
@@ -349,10 +316,9 @@ footer {
   margin-top: 50px;
   text-align: center;
   font-size: 0.9rem;
-  color: #aaa;
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(5px);
-  padding: 15px;
+  color: #666;
+  background: #f0f0f0;
+  padding: 20px;
   border-radius: 10px;
 }
 
@@ -374,31 +340,12 @@ footer {
     width: 250px;
 }
 
-.rec-card {
-    font-size: 1rem;
-}
-
   #contact form {
     max-width: 600px;
-}
-
-  #about {
-    padding: 40px;
 }
 }
 
 @media (max-width: 600px) {
-.floating-footer {
-    flex-direction: row;
-    bottom: 10px;
-    right: 10px;
-}
-
-.floating-footer a {
-    font-size: 1.5rem;
-    padding: 8px;
-}
-
   header h1 {
     font-size: 2rem;
 }
@@ -412,7 +359,7 @@ footer {
 }
 
 .download-btn {
-    padding: 8px 16px;
-    font-size: 0.9rem;
+    width: 100%;
+    text-align: center;
 }
 }

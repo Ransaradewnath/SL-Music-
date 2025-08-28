@@ -16,42 +16,30 @@
       <a href="contact.html">💬</a>
     </nav>
     <input type="text" id="searchInput" placeholder="Find Your Favourite Song..." />
+    <p id="resultCount" class="result-count">🔍 0 results found</p>
   </header>
 
   <main>
     <!-- Search Results -->
     <ul id="searchResults"></ul>
+    <p id="noResults" class="no-results" style="display: none;">😢 No results found</p>
 
     <!-- Song Details -->
     <div id="songDetails"></div>
 
-    <!-- Trending Songs -->
-    <section id="trending">
-      <h2>🔥 Trending Songs</h2>
-      <div class="trending-list" id="trendingList"></div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-      <h2>About SonicStream SL</h2>
-      <p>SonicStream SL is a Sri Lankan music portal built to celebrate local talent and deliver high-quality streaming experiences.</p>
-      <p>Website by <strong>Ransara Devnath</strong> 🇱🇰</p>
-    </section>
+    <!-- Main Content (Trending Section) -->
+    <div id="mainContent">
+      <section id="trending">
+        <h2>🔥 Trending Songs</h2>
+        <div class="trending-list" id="trendingList"></div>
+      </section>
+    </div>
   </main>
 
-  <!-- Footer -->
   <footer>
     <p>© 2025 SonicStream SL. All rights reserved.</p>
   </footer>
 
-  <!-- Floating Emoji Navigation -->
-  <div class="floating-footer">
-    <a href="contact.html" title="Contact Us">💬</a>
-    <a href="releases.html" title="Upcoming">📅</a>
-    <a href="index.html" title="Home">🏠</a>
-  </div>
-
-  <!-- JavaScript -->
   <script src="app.js"></script>
 </body>
 </html>
