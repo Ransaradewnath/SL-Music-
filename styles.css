@@ -1,0 +1,418 @@
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+  color: white;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+header span {
+  color: #0ff;
+}
+
+/* Navigation */
+nav {
+  margin-top: 15px;
+}
+
+nav a {
+  margin: 0 10px;
+  color: #0ff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Search Bar */
+#searchInput {
+  margin-top: 15px;
+  padding: 10px 20px;
+  width: 80%;
+  max-width: 500px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 10px #00f;
+  animation: pulse 2s infinite;
+}
+
+#searchInput::placeholder {
+  color: #0ff;
+  font-style: italic;
+  animation: fadeIn 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 10px #00f;}
+  50% { box-shadow: 0 0 20px #0ff;}
+  100% { box-shadow: 0 0 10px #00f;}
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0.3;}
+  50% { opacity: 1;}
+  100% { opacity: 0.3;}
+}
+
+/* Search Results */
+#searchResults {
+  list-style: none;
+  margin-top: 20px;
+  padding-left: 0;
+  text-align: center;
+}
+
+.search-item {
+  padding: 10px;
+  margin: 5px auto;
+  width: 80%;
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.search-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Song Details */
+#songDetails {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.song-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 0 20px #00f;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.song-card img.cover {
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.song-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.song-card p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #ccc;
+}
+
+.song-card audio {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.download-btn {
+  display: inline-block;
+  background: #00f;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 0 10px #00f;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.download-btn:hover {
+  background: #0ff;
+  box-shadow: 0 0 20px #0ff;
+}
+
+/* Trending Songs */
+#trending {
+  margin-top: 50px;
+  text-align: center;
+}
+
+#trending h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #0ff;
+}
+
+.trending-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.trending-card {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 15px;
+  width: 220px;
+  box-shadow: 0 0 10px #00f;
+  text-align: center;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.trending-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #0ff;
+}
+
+.trending-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.trending-card h4 {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.trending-card p {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* About Section */
+#about {
+  margin-top: 60px;
+  text-align: center;
+  padding: 20px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+}
+
+#about h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+#about p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #ccc;
+}
+
+/* Contact Form */
+#contact {
+  margin-top: 50px;
+  text-align: center;
+}
+
+#contact form {
+display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#contact input,
+#contact textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+#contact button {
+  padding: 10px 20px;
+  background: #00f;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 0 10px #00f;
+  cursor: pointer;
+}
+
+#contact button:hover {
+  background: #0ff;
+  box-shadow: 0 0 20px #0ff;
+}
+
+/* Upcoming Releases */
+#upcoming {
+  margin-top: 50px;
+  text-align: center;
+}
+
+#upcoming ul {
+  list-style: none;
+  padding: 0;
+  color: #ccc;
+}
+
+#upcoming li {
+  margin-bottom: 10px;
+}
+
+/* Recommendations */
+.recommendations {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.recommendations h4 {
+  color: #0ff;
+  margin-bottom: 10px;
+}
+
+.rec-card {
+  background: rgba(255,255,255,0.05);
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.rec-card:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+/* Floating Emoji Footer */
+.floating-footer {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 999;
+}
+
+.floating-footer a {
+  font-size: 1.8rem;
+  text-decoration: none;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(5px);
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00f;
+  transition: transform 0.3s, box-shadow 0.3s;
+  color: white;
+  text-align: center;
+}
+
+.floating-footer a:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 20px #0ff;
+}
+
+/* Footer */
+footer {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #aaa;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(5px);
+  padding: 15px;
+  border-radius: 10px;
+}
+
+/* Responsive Layout */
+@media (min-width: 768px) {
+  #searchInput {
+    width: 50%;
+}
+
+.song-card {
+    max-width: 600px;
+}
+
+.trending-list {
+    justify-content: space-around;
+}
+
+.trending-card {
+    width: 250px;
+}
+
+.rec-card {
+    font-size: 1rem;
+}
+
+  #contact form {
+    max-width: 600px;
+}
+
+  #about {
+    padding: 40px;
+}
+}
+
+@media (max-width: 600px) {
+.floating-footer {
+    flex-direction: row;
+    bottom: 10px;
+    right: 10px;
+}
+
+.floating-footer a {
+    font-size: 1.5rem;
+    padding: 8px;
+}
+
+  header h1 {
+    font-size: 2rem;
+}
+
+  #searchInput {
+    width: 90%;
+}
+
+.song-card {
+    padding: 15px;
+}
+
+.download-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+}
+}

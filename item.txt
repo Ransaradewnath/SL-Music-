@@ -1,0 +1,4 @@
+Song Name: Senehasa Mage
+Artist: Randhir
+Audio: https://yourdomain.com/audio/senehasa_mage.mp3
+Cover: https://yourdomain.com/images/senehasa_mage.jpg
